@@ -22,7 +22,7 @@ export default class MenuScreen extends GameScreen {
         strokeStyle: '#242424',
         font: 'Arial',
         action: () => {
-          this.game.gameState = GAMESTATE.RUNNING;
+          this.game.start();
         }
       },
       {
@@ -36,7 +36,7 @@ export default class MenuScreen extends GameScreen {
         strokeStyle: '#242424',
         font: 'Arial',
         action: () => {
-          this.game.gameState = GAMESTATE.RUNNING;
+          this.game.start();
         }
       },
       {
@@ -50,7 +50,7 @@ export default class MenuScreen extends GameScreen {
         strokeStyle: '#242424',
         font: 'Arial',
         action: () => {
-          this.game.gameState = GAMESTATE.RUNNING;
+          this.game.start();
         }
       },
       {

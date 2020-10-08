@@ -24,6 +24,12 @@ export default class PlayerShip extends Ship {
     this.game.addObject(rocket);
   }
 
+  reset() {
+    this.exploded = false;
+    this.isDeleted = false;
+    this.position = { ...START_POSITION };
+  }
+
   draw(ctx: CanvasRenderingContext2D) {
     if (this.exploded) {
       if (this.explosion[this.explosionFrame]) {

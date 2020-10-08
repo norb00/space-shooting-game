@@ -47,13 +47,13 @@ export default class Game {
 
     new KeyInputHandler(this.playerShip, this);
 
-    this.screens[GAMESTATE.SPLASH_SCREEN] = new SplashScreen({width: this.gameWidth, height: this.gameHeight}, this);
-    this.screens[GAMESTATE.MENU] = new MenuScreen({width: this.gameWidth, height: this.gameHeight}, this);
-    this.screens[GAMESTATE.GAMEOVER] = new GameScreen({width: this.gameWidth, height: this.gameHeight});
+    this.screens[GAMESTATE.SPLASH_SCREEN] = new SplashScreen({ width: this.gameWidth, height: this.gameHeight }, this);
+    this.screens[GAMESTATE.MENU] = new MenuScreen({ width: this.gameWidth, height: this.gameHeight }, this);
+    this.screens[GAMESTATE.GAMEOVER] = new GameScreen({ width: this.gameWidth, height: this.gameHeight });
 
     this.initNewEnemies();
   }
- 
+
   addObject(object: PlayerShip | Rocket | EnemyShip | Particle) {
     this.gameObjects.push(object);
   }
@@ -61,13 +61,14 @@ export default class Game {
   start() {
     if (this.gameState === GAMESTATE.RUNNING) return;
     this.gameState = GAMESTATE.RUNNING;
+    this.playerShip.reset()
     this.gameObjects = [this.playerShip];
   }
 
   menu() {
     if (this.gameState === GAMESTATE.MENU) return;
     this.gameState = GAMESTATE.MENU;
-    this.gameObjects = [this.playerShip];    
+    this.gameObjects = [this.playerShip];
   }
 
   update(deltaTime: number) {
@@ -108,7 +109,7 @@ export default class Game {
         const enemy = new EnemyShip(this);
         this.gameObjects.push(enemy);
       }
-  }, 2000);
+    }, 2000);
   }
 
 }
